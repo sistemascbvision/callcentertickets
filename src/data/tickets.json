@@ -1,0 +1,160 @@
+[
+    {
+      "id": 1,
+      "cliente_id": 101,
+      "asunto": "Internet outage",
+      "tecnico_id": 201,
+      "estado_id": 1,
+      "prioridad_id": 1,
+      "zona": "Zona A",
+      "fecha_creacion": "2024-06-14T12:00:00Z",
+      "fecha_actualizacion": "2024-06-14T12:00:00Z"
+    },
+    {
+      "id": 1,
+      "cliente_id": 101,
+      "asunto": "Se fue la luz",
+      "tecnico_id": 201,
+      "estado_id": 1,
+      "prioridad_id": 1,
+      "zona": "Zona A",
+      "fecha_creacion": "2024-06-14T12:00:00Z",
+      "fecha_actualizacion": "2024-06-14T12:00:00Z"
+    },
+    {
+      "id": 1,
+      "cliente_id": 101,
+      "asunto": "Router roto",
+      "tecnico_id": 201,
+      "estado_id": 1,
+      "prioridad_id": 1,
+      "zona": "Zona A",
+      "fecha_creacion": "2024-06-14T12:00:00Z",
+      "fecha_actualizacion": "2024-06-14T12:00:00Z"
+    },
+    {
+      "id": 1,
+      "cliente_id": 101,
+      "asunto": "Desconexion",
+      "tecnico_id": 201,
+      "estado_id": 1,
+      "prioridad_id": 1,
+      "zona": "Zona A",
+      "fecha_creacion": "2024-06-14T12:00:00Z",
+      "fecha_actualizacion": "2024-06-14T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "cliente_id": 102,
+      "asunto": "Slow internet speed",
+      "tecnico_id": 202,
+      "estado_id": 2,
+      "prioridad_id": 2,
+      "zona": "Zona B",
+      "fecha_creacion": "2024-06-14T12:05:00Z",
+      "fecha_actualizacion": "2024-06-14T12:05:00Z"
+    },
+    {
+      "id": 3,
+      "cliente_id": 103,
+      "asunto": "Router dañado",
+      "tecnico_id": 203,
+      "estado_id": 3,
+      "prioridad_id": 3,
+      "zona": "Zona C",
+      "fecha_creacion": "2024-06-14T12:10:00Z",
+      "fecha_actualizacion": "2024-06-14T12:10:00Z"
+    },
+
+    {
+      "id": 13,
+      "cliente_id": 113,
+      "asunto": "Router dañado",
+      "tecnico_id": 213,
+      "estado_id": 1,
+      "prioridad_id": 1,
+      "zona": "Zona M",
+      "fecha_creacion": "2024-06-14T13:00:00Z",
+      "fecha_actualizacion": "2024-06-14T13:00:00Z"
+    },
+    {
+      "id": 14,
+      "cliente_id": 114,
+      "asunto": "No signal on TV",
+      "tecnico_id": 214,
+      "estado_id": 2,
+      "prioridad_id": 2,
+      "zona": "Zona N",
+      "fecha_creacion": "2024-06-14T13:05:00Z",
+      "fecha_actualizacion": "2024-06-14T13:05:00Z"
+    },
+    {
+      "id": 15,
+      "cliente_id": 115,
+      "asunto": "Phone line not working",
+      "tecnico_id": 215,
+      "estado_id": 3,
+      "prioridad_id": 3,
+      "zona": "Zona O",
+      "fecha_creacion": "2024-06-14T13:10:00Z",
+      "fecha_actualizacion": "2024-06-14T13:10:00Z"
+    },
+    {
+      "id": 16,
+      "cliente_id": 116,
+      "asunto": "Computer virus",
+      "tecnico_id": 216,
+      "estado_id": 1,
+      "prioridad_id": 1,
+      "zona": "Zona P",
+      "fecha_creacion": "2024-06-14T13:15:00Z",
+      "fecha_actualizacion": "2024-06-14T13:15:00Z"
+    },
+    {
+      "id": 17,
+      "cliente_id": 117,
+      "asunto": "Internet outage",
+      "tecnico_id": 217,
+      "estado_id": 2,
+      "prioridad_id": 2,
+      "zona": "Zona Q",
+      "fecha_creacion": "2024-06-14T13:20:00Z",
+      "fecha_actualizacion": "2024-06-14T13:20:00Z"
+    },
+    {
+      "id": 18,
+      "cliente_id": 118,
+      "asunto": "Slow internet speed",
+      "tecnico_id": 218,
+      "estado_id": 3,
+      "prioridad_id": 3,
+      "zona": "Zona R",
+      "fecha_creacion": "2024-06-14T13:25:00Z",
+      "fecha_actualizacion": "2024-06-14T13:25:00Z"
+    },
+    {
+      "id": 19,
+      "cliente_id": 119,
+      "asunto": "Router dañado",
+      "tecnico_id": 219,
+      "estado_id": 1,
+      "prioridad_id": 1,
+      "zona": "Zona S",
+      "fecha_creacion": "2024-06-14T13:30:00Z",
+      "fecha_actualizacion": "2024-06-14T13:30:00Z"
+    },
+    {
+      "id": 20,
+      "cliente_id": 120,
+      "asunto": "No signal on TV",
+      "tecnico_id": 220,
+      "estado_id": 2,
+      "prioridad_id": 2,
+      "zona": "Zona T",
+      "fecha_creacion": "2024-06-14T13:35:00Z",
+      "fecha_actualizacion": "2024-06-14T13:35:00Z"
+    }
+
+
+  ]
+  

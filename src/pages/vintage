@@ -1,0 +1,496 @@
+// import React, { useState } from 'react';
+// import axios from 'axios';
+// import { Container, TextField, Button, Typography, Card, CardContent, Grid, IconButton, InputAdornment, Box } from '@mui/material';
+// import { Visibility, VisibilityOff, AccountCircle, Lock } from '@mui/icons-material';
+// import { useNavigate } from 'react-router-dom';
+
+// const orangeColor = '#FF6F00';
+
+// function Login() {
+//   const [username, setUsername] = useState('');
+//   const [password, setPassword] = useState('');
+//   const [error, setError] = useState('');
+//   const [showPassword, setShowPassword] = useState(false);
+//   const navigate = useNavigate();
+
+//   const handleLogin = async (e) => {
+//     e.preventDefault();
+//     try {
+//       const response = await axios.post('http://localhost:3001/api/usuarios/login', {
+//         nombre_usuario: username,
+//         contrasena: password,
+//       });
+
+//       if (response.data.success) {
+//         localStorage.setItem('token', response.data.token);
+//         navigate('/home');
+//       } else {
+//         setError('Credenciales incorrectas');
+//       }
+//     } catch (error) {
+//       console.error('Error al iniciar sesión:', error);
+//       setError('Error al iniciar sesión. Por favor, inténtalo de nuevo más tarde.');
+//     }
+//   };
+
+//   const handleClickShowPassword = () => {
+//     setShowPassword(!showPassword);
+//   };
+
+//   return (
+//     <Container maxWidth="sm" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+//       <img src="https://www.cbvision.net.ec/wp-content/uploads/2023/10/cbvision-logo@1x-sticky.png" alt="CBVision Logo" style={{ width: '200px', marginBottom: '20px' }} />
+//       <Card variant="outlined" style={{ width: '100%' }}>
+//         <CardContent>
+//           <Grid container direction="column" spacing={2} alignItems="center">
+//             <Grid item>
+//               <Typography variant="h5" component="h2" gutterBottom>
+//                 Sistema de gestión de tickets
+//               </Typography>
+//             </Grid>
+//             <Grid item>
+//               <form onSubmit={handleLogin} style={{ width: '100%' }}>
+//                 <TextField
+//                   label="Nombre de usuario"
+//                   variant="outlined"
+//                   margin="normal"
+//                   fullWidth
+//                   value={username}
+//                   onChange={(e) => setUsername(e.target.value)}
+//                   InputProps={{
+//                     startAdornment: (
+//                       <InputAdornment position="start">
+//                         <AccountCircle style={{ color: orangeColor }} />
+//                       </InputAdornment>
+//                     ),
+//                   }}
+//                 />
+//                 <TextField
+//                   label="Contraseña"
+//                   variant="outlined"
+//                   margin="normal"
+//                   fullWidth
+//                   type={showPassword ? 'text' : 'password'}
+//                   value={password}
+//                   onChange={(e) => setPassword(e.target.value)}
+//                   InputProps={{
+//                     startAdornment: (
+//                       <InputAdornment position="start">
+//                         <Lock style={{ color: orangeColor }} />
+//                       </InputAdornment>
+//                     ),
+//                     endAdornment: (
+//                       <InputAdornment position="end">
+//                         <IconButton onClick={handleClickShowPassword} edge="end">
+//                           {showPassword ? <VisibilityOff style={{ color: orangeColor }} /> : <Visibility style={{ color: orangeColor }} />}
+//                         </IconButton>
+//                       </InputAdornment>
+//                     ),
+//                   }}
+//                 />
+//                 {error && <Typography color="error">{error}</Typography>}
+//                 <Button type="submit" variant="contained" fullWidth style={{ marginTop: '20px', backgroundColor: orangeColor, color: 'white' }}>
+//                   Iniciar Sesión
+//                 </Button>
+//               </form>
+//             </Grid>
+//           </Grid>
+//         </CardContent>
+//       </Card>
+//     </Container>
+//   );
+// }
+
+// export default Login;
+
+
+
+
+
+
+
+
+
+
+
+// const handleLogin = async (e) => {
+//     e.preventDefault();
+//     try {
+//         const response = await axios.post('http://127.0.0.1:5000/users/login', {
+//             username,
+//             password
+//         });
+
+//         if (response.status === 200) {
+//             const { token, message, user } = response.data;
+//             localStorage.setItem('token', token);
+//             localStorage.setItem('user', JSON.stringify(user)); // Guarda la información del usuario en localStorage
+//             setError('');
+//             navigate('/home');
+//         } else {
+//             setError('Credenciales incorrectas');
+//         }
+//     } catch (error) {
+//         console.error('Error al iniciar sesión:', error);
+//         setError('Error al iniciar sesión. Por favor, inténtalo de nuevo más tarde.');
+//     }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import axios from 'axios';
+// import { Container, TextField, Button, Typography, Card, CardContent, Grid, IconButton, InputAdornment } from '@mui/material';
+// import { Visibility, VisibilityOff, AccountCircle, Lock } from '@mui/icons-material';
+// import { useNavigate } from 'react-router-dom';
+
+// const Login = () => {
+//     const [username, setUsername] = useState('');
+//     const [password, setPassword] = useState('');
+//     const [error, setError] = useState('');
+//     const [showPassword, setShowPassword] = useState(false);
+//     const navigate = useNavigate();
+
+//     const handleLogin = async (e) => {
+//         e.preventDefault();
+//         try {
+//             const response = await axios.post('http://127.0.0.1:5000/users/login', {
+//                 username,
+//                 password
+//             });
+
+//             if (response.status === 200) {
+//                 const { token, message, user } = response.data;
+//                 localStorage.setItem('token', token);
+//                 localStorage.setItem('user', JSON.stringify(user)); // Almacena la información del usuario en localStorage
+//                 setError('');
+//                 navigate('/home');
+//             } else {
+//                 setError('Credenciales incorrectas');
+//             }
+//         } catch (error) {
+//             console.error('Error al iniciar sesión:', error);
+//             setError('Error al iniciar sesión. Por favor, inténtalo de nuevo más tarde.');
+//         }
+//     };
+
+//     const handleClickShowPassword = () => {
+//         setShowPassword(!showPassword);
+//     };
+
+//     return (
+//         // Tu código de formulario de inicio de sesión aquí...
+//     );
+// };
+
+// export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //navbar
+
+
+// import React, { useState, useEffect } from 'react';
+// import { AppBar, Toolbar, Typography, IconButton, Avatar, Box, Menu, MenuItem } from '@mui/material';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import Brightness4Icon from '@mui/icons-material/Brightness4';
+// import Brightness7Icon from '@mui/icons-material/Brightness7';
+// import { useNavigate } from 'react-router-dom';
+
+// const orangeColor = '#FF6F00';
+
+// function Navbar({ onToggleSidebar, onToggleTheme, darkMode, isOpen, drawerWidth, theme }) {
+//     const [anchorEl, setAnchorEl] = useState(null);
+//     const [user, setUser] = useState(null);
+//     const navigate = useNavigate();
+
+//     useEffect(() => {
+//         const userData = localStorage.getItem('user');
+//         if (userData) {
+//             setUser(JSON.parse(userData));
+//         }
+//     }, []);
+
+//     const handleMenu = (event) => {
+//         setAnchorEl(event.currentTarget);
+//     };
+
+//     const handleClose = () => {
+//         setAnchorEl(null);
+//     };
+
+//     const handleLogout = () => {
+//         localStorage.removeItem('token');
+//         localStorage.removeItem('user');
+//         navigate('/login');
+//         handleClose();
+//     };
+
+//     return (
+//         <AppBar
+//             position="fixed"
+//             sx={{
+//                 zIndex: theme.zIndex.drawer + 1,
+//                 backgroundColor: theme.palette.primary.main,
+//             }}
+//         >
+//             <Toolbar>
+//                 <IconButton
+//                     color="inherit"
+//                     aria-label="open drawer"
+//                     edge="start"
+//                     onClick={onToggleSidebar}
+//                     sx={{ mr: 2 }}
+//                 >
+//                     <MenuIcon />
+//                 </IconButton>
+//                 <Typography variant="h6" noWrap>
+//                     CBVision Tickets
+//                 </Typography>
+//                 <Box ml="auto" display="flex" alignItems="center">
+//                     <IconButton
+//                         color="inherit"
+//                         aria-label="toggle theme"
+//                         onClick={onToggleTheme}
+//                     >
+//                         {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+//                     </IconButton>
+//                     {user && ( // Verifica si el usuario está autenticado antes de mostrar su información
+//                         <Box display="flex" alignItems="center">
+//                             <Typography variant="body1" sx={{ pr: 1 }}>{user.username}</Typography>
+//                             <Avatar>{user.username.charAt(0).toUpperCase()}</Avatar>
+//                         </Box>
+//                     )}
+//                     <Menu
+//                         id="menu-appbar"
+//                         anchorEl={anchorEl}
+//                         anchorOrigin={{
+//                             vertical: 'top',
+//                             horizontal: 'right',
+//                         }}
+//                         keepMounted
+//                         transformOrigin={{
+//                             vertical: 'top',
+//                             horizontal: 'right',
+//                         }}
+//                         open={Boolean(anchorEl)}
+//                         onClose={handleClose}
+//                     >
+//                         <MenuItem onClick={handleClose}>Configuraciones</MenuItem>
+//                         <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
+//                     </Menu>
+//                 </Box>
+//             </Toolbar>
+//         </AppBar>
+//     );
+// }
+
+// export default Navbar;
+
+
+
+
+
+
+
+
+
+
+
+
+// import * as React from 'react';
+// import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
+// import IconButton from '@mui/material/IconButton';
+// import Typography from '@mui/material/Typography';
+// import Menu from '@mui/material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import Container from '@mui/material/Container';
+// import Avatar from '@mui/material/Avatar';
+// import Button from '@mui/material/Button';
+// import Tooltip from '@mui/material/Tooltip';
+// import MenuItem from '@mui/material/MenuItem';
+// import AdbIcon from '@mui/icons-material/Adb';
+
+// const pages = ['Products', 'Pricing', 'Blog'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+// function ResponsiveAppBar() {
+//   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+//   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+
+//   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+//     setAnchorElNav(event.currentTarget);
+//   };
+//   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+//     setAnchorElUser(event.currentTarget);
+//   };
+
+//   const handleCloseNavMenu = () => {
+//     setAnchorElNav(null);
+//   };
+
+//   const handleCloseUserMenu = () => {
+//     setAnchorElUser(null);
+//   };
+
+//   return (
+//     <AppBar position="static">
+//       <Container maxWidth="xl">
+//         <Toolbar disableGutters>
+//           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+//           <Typography
+//             variant="h6"
+//             noWrap
+//             component="a"
+//             href="#app-bar-with-responsive-menu"
+//             sx={{
+//               mr: 2,
+//               display: { xs: 'none', md: 'flex' },
+//               fontFamily: 'monospace',
+//               fontWeight: 700,
+//               letterSpacing: '.3rem',
+//               color: 'inherit',
+//               textDecoration: 'none',
+//             }}
+//           >
+//             LOGO
+//           </Typography>
+
+//           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+//             <IconButton
+//               size="large"
+//               aria-label="account of current user"
+//               aria-controls="menu-appbar"
+//               aria-haspopup="true"
+//               onClick={handleOpenNavMenu}
+//               color="inherit"
+//             >
+//               <MenuIcon />
+//             </IconButton>
+//             <Menu
+//               id="menu-appbar"
+//               anchorEl={anchorElNav}
+//               anchorOrigin={{
+//                 vertical: 'bottom',
+//                 horizontal: 'left',
+//               }}
+//               keepMounted
+//               transformOrigin={{
+//                 vertical: 'top',
+//                 horizontal: 'left',
+//               }}
+//               open={Boolean(anchorElNav)}
+//               onClose={handleCloseNavMenu}
+//               sx={{
+//                 display: { xs: 'block', md: 'none' },
+//               }}
+//             >
+//               {pages.map((page) => (
+//                 <MenuItem key={page} onClick={handleCloseNavMenu}>
+//                   <Typography textAlign="center">{page}</Typography>
+//                 </MenuItem>
+//               ))}
+//             </Menu>
+//           </Box>
+//           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+//           <Typography
+//             variant="h5"
+//             noWrap
+//             component="a"
+//             href="#app-bar-with-responsive-menu"
+//             sx={{
+//               mr: 2,
+//               display: { xs: 'flex', md: 'none' },
+//               flexGrow: 1,
+//               fontFamily: 'monospace',
+//               fontWeight: 700,
+//               letterSpacing: '.3rem',
+//               color: 'inherit',
+//               textDecoration: 'none',
+//             }}
+//           >
+//             LOGO
+//           </Typography>
+//           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+//             {pages.map((page) => (
+//               <Button
+//                 key={page}
+//                 onClick={handleCloseNavMenu}
+//                 sx={{ my: 2, color: 'white', display: 'block' }}
+//               >
+//                 {page}
+//               </Button>
+//             ))}
+//           </Box>
+
+//           <Box sx={{ flexGrow: 0 }}>
+//             <Tooltip title="Open settings">
+//               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+//                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+//               </IconButton>
+//             </Tooltip>
+//             <Menu
+//               sx={{ mt: '45px' }}
+//               id="menu-appbar"
+//               anchorEl={anchorElUser}
+//               anchorOrigin={{
+//                 vertical: 'top',
+//                 horizontal: 'right',
+//               }}
+//               keepMounted
+//               transformOrigin={{
+//                 vertical: 'top',
+//                 horizontal: 'right',
+//               }}
+//               open={Boolean(anchorElUser)}
+//               onClose={handleCloseUserMenu}
+//             >
+//               {settings.map((setting) => (
+//                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
+//                   <Typography textAlign="center">{setting}</Typography>
+//                 </MenuItem>
+//               ))}
+//             </Menu>
+//           </Box>
+//         </Toolbar>
+//       </Container>
+//     </AppBar>
+//   );
+// }
+// export default ResponsiveAppBar;
