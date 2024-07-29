@@ -134,6 +134,17 @@ const TicketTable = ({ tickets, handleEditTicket, handleDeleteTicket, isAdmin, s
                   Solicitante
                 </TableSortLabel>
               </StyledTableCell>
+              {/* agregacion jsj */}
+              <StyledTableCell>
+                <TableSortLabel
+                  active={orderBy === 'requester_contact'}
+                  direction={orderBy === 'requester_contact' ? order : 'asc'}
+                  onClick={() => handleRequestSort('requester_contact')}
+                >
+                  Contacto
+                </TableSortLabel>
+              </StyledTableCell>
+
               <StyledTableCell>
                 <TableSortLabel
                   active={orderBy === 'title'}
@@ -199,6 +210,7 @@ const TicketTable = ({ tickets, handleEditTicket, handleDeleteTicket, isAdmin, s
               >
                 <TableCell>{ticket.id}</TableCell>
                 <TableCell>{ticket.requester_name}</TableCell>
+                <TableCell>{ticket.requester_contact}</TableCell>
                 <TableCell>{ticket.title}</TableCell>
                 <TableCell>
                   <Chip
@@ -220,12 +232,26 @@ const TicketTable = ({ tickets, handleEditTicket, handleDeleteTicket, isAdmin, s
                   />
                 </TableCell>
                 <TableCell>
-                  <IconButton onClick={() => handleEditClick(ticket)}>
+                  {/* <IconButton onClick={() => handleEditClick(ticket)}>
                     <Edit />
                   </IconButton>
                   <IconButton onClick={() => handleDeleteClick(ticket.id)}>
                     <Delete />
                   </IconButton>
+                  <IconButton onClick={() => handleViewDetails(ticket.id)}>
+                    <Visibility />
+                  </IconButton> */}
+
+                  {isAdmin && (
+                    <>
+                      <IconButton onClick={() => handleEditClick(ticket)}>
+                        <Edit />
+                      </IconButton>
+                      <IconButton onClick={() => handleDeleteClick(ticket.id)}>
+                        <Delete />
+                      </IconButton>
+                    </>
+                  )}
                   <IconButton onClick={() => handleViewDetails(ticket.id)}>
                     <Visibility />
                   </IconButton>
@@ -275,3 +301,5 @@ const TicketTable = ({ tickets, handleEditTicket, handleDeleteTicket, isAdmin, s
 };
 
 export default TicketTable;
+
+

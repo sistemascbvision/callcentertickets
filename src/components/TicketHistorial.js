@@ -14,6 +14,27 @@ function TicketHistorial({ clientId }) {
   
   const [error, setError] = useState(null);
 
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'open': return 'error';
+      case 'in_progress': return 'warning';
+      case 'resolved': return 'success';
+      case 'closed': return 'default';
+      default: return 'default';
+    }
+  };
+  
+  const getStatusText = (status) => {
+    switch (status) {
+      case 'open': return 'Abierto';
+      case 'in_progress': return 'En proceso';
+      case 'resolved': return 'Resuelto';
+      case 'closed': return 'Cerrado';
+      default: return status;
+    }
+  };
+  
+
   useEffect(() => {
     const fetchTickets = async () => {
       if (!clientId) {
@@ -68,7 +89,7 @@ function TicketHistorial({ clientId }) {
                 primary={ticket.title}
                 secondary={`Creado el: ${new Date(ticket.created_at).toLocaleDateString()}`}
               />
-              <Chip label={ticket.status} color={getStatusColor(ticket.status)} size="small" />
+              <Chip label={getStatusText(ticket.status)} color={getStatusColor(ticket.status)} size="small" />
             </ListItem>
             <Collapse in={expandedTicket === ticket.id} timeout="auto" unmountOnExit>
               <Box sx={{ ml: 4, mt: 1, mb: 2 }}>
@@ -87,13 +108,6 @@ function TicketHistorial({ clientId }) {
   );
 }
 
-const getStatusColor = (status) => {
-  switch (status) {
-    case 'open': return 'error';
-    case 'in_progress': return 'warning';
-    case 'resolved': return 'success';
-    default: return 'default';
-  }
-};
+
 
 export default TicketHistorial;

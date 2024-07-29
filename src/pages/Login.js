@@ -1,112 +1,3 @@
-
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import { Container, TextField, Button, Typography, Card, CardContent, IconButton, InputAdornment } from '@mui/material';
-// import { Visibility, VisibilityOff, AccountCircle, Lock } from '@mui/icons-material';
-// import { useNavigate } from 'react-router-dom';
-
-// const orangeColor = process.env.REACT_APP_THEME_COLOR || '#FF6F00';
-
-// const Login = () => {
-//     const [username, setUsername] = useState('');
-//     const [password, setPassword] = useState('');
-//     const [role_id, setRole_id] = useState('');
-//     const [error, setError] = useState('');
-//     const [showPassword, setShowPassword] = useState(false);
-//     const navigate = useNavigate();
-
-//     const handleLogin = async (e) => {
-//         e.preventDefault();
-//         try {
-//             const apiUrl = `${process.env.REACT_APP_API_URL}${process.env.REACT_APP_LOGIN_ENDPOINT}`;
-//             const response = await axios.post(apiUrl, {
-//                 username,
-//                 password,
-      
-//             });
-
-//             if (response.status === 200) {
-//                 const { token, user } = response.data;
-//                 localStorage.setItem('token', token);
-//                 localStorage.setItem('user', JSON.stringify(user));
-//                 localStorage.setItem('role_id', JSON.stringify(role_id));
-//                 setError('');
-//                 navigate('/home');
-//                 console.log(user);
-//             } else {
-//                 setError('Credenciales incorrectas');
-//             }
-//         } catch (error) {
-//             console.error('Error al iniciar sesión:', error);
-//             setError('Error al iniciar sesión. Por favor, inténtalo de nuevo más tarde.');
-//         }
-//     };
-
-//     const handleClickShowPassword = () => {
-//         setShowPassword(!showPassword);
-//     };
-
-//     return (
-//         <Container className='login-container' maxWidth="sm" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
-//             <img src="https://www.cbvision.net.ec/wp-content/uploads/2023/10/cbvision-logo@1x-sticky.png" alt="CBVision Logo" style={{ width: '200px', marginBottom: '20px' }} />
-//             <Card variant="outlined" className="login-card">
-//                 <CardContent>
-//                     <Typography variant="h5" component="h2" gutterBottom>
-//                         Sistema de gestión de tickets
-//                     </Typography>
-//                     <form onSubmit={handleLogin} className="login-form">
-//                         <TextField
-//                             label="Nombre de usuario"
-//                             variant="outlined"
-//                             margin="normal"
-//                             fullWidth
-//                             value={username}
-//                             onChange={(e) => setUsername(e.target.value)}
-//                             InputProps={{
-//                                 startAdornment: (
-//                                     <InputAdornment position="start">
-//                                         <AccountCircle style={{ color: orangeColor }} />
-//                                     </InputAdornment>
-//                                 ),
-//                             }}
-//                         />
-//                         <TextField
-//                             label="Contraseña"
-//                             variant="outlined"
-//                             margin="normal"
-//                             fullWidth
-//                             type={showPassword ? 'text' : 'password'}
-//                             value={password}
-//                             onChange={(e) => setPassword(e.target.value)}
-
-//                             InputProps={{
-//                                 startAdornment: (
-//                                     <InputAdornment position="start">
-//                                         <Lock style={{ color: orangeColor }} />
-//                                     </InputAdornment>
-//                                 ),
-//                                 endAdornment: (
-//                                     <InputAdornment position="end">
-//                                         <IconButton onClick={handleClickShowPassword} edge="end">
-//                                             {showPassword ? <VisibilityOff style={{ color: orangeColor }} /> : <Visibility style={{ color: orangeColor }} />}
-//                                         </IconButton>
-//                                     </InputAdornment>
-//                                 ),
-//                             }}
-//                         />
-//                         {error && <Typography color="error">{error}</Typography>}
-//                         <Button type="submit" variant="contained" fullWidth className="login-button" style={{ backgroundColor: orangeColor, color: 'white' }}>
-//                             Iniciar Sesión
-//                         </Button>
-//                     </form>
-//                 </CardContent>
-//             </Card>
-//         </Container>
-//     );
-// };
-
-// export default Login;
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
@@ -137,7 +28,7 @@ const orangeColor = process.env.REACT_APP_THEME_COLOR || '#FF6F00';
 
 const apiUrl = `${process.env.REACT_APP_API_URL}${process.env.REACT_APP_LOGIN_ENDPOINT}`;
 const socketUrl = process.env.REACT_APP_SOCKET_URL || 'http://localhost:3000';
-console.log('Socket URL:', socketUrl);
+// console.log('Socket URL:', socketUrl);
 const socket = io(socketUrl);
 // const socket = io(process.env.REACT_APP_SOCKET_URL);
 
@@ -166,15 +57,11 @@ const Login = () => {
 
 //NOTIFICACIONESSSSSSS
 
-
-
-
-
 useEffect(() => {
-  console.log('Intentando conectar al socket...');
+  // console.log('Intentando conectar al socket...');
   
   socket.on('connect', () => {
-    console.log('Conectado al servidor Socket.IO');
+    // console.log('Conectado al servidor Socket.IO');
   });
 
   socket.on('connect_error', (error) => {
@@ -182,11 +69,11 @@ useEffect(() => {
   });
 
   socket.on('user_connected', (data) => {
-    console.log('Notificación recibida:', data);
+    // console.log('Notificación recibida:', data);
   });
 
   return () => {
-    console.log('Limpiando listeners de socket');
+    // console.log('Limpiando listeners de socket');
     socket.off('connect');
     socket.off('connect_error');
     socket.off('user_connected');
@@ -203,7 +90,7 @@ const handleLogin = async (e) => {
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
       setError('');
-      console.log('Emitiendo evento user_login:', user);
+      // console.log('Emitiendo evento user_login:', user);
       socket.emit('user_login', user);
       setSnackbarOpen(true);
       setTimeout(() => navigate('/home'), 1500);
