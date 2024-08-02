@@ -74,28 +74,6 @@ const TicketDetails = () => {
     return () => clearInterval(pollInterval);
   }, [ticketId, token]);
 
-  // const handleAddComment = async () => {
-  //   if (newComment.trim() === '') {
-  //     setSnackbarMessage('Por favor, escribe un comentario antes de confirmar.');
-  //     setSnackbarOpen(true);
-  //     return;
-  //   }
-  //   try {
-  //     await addComment(ticketId, newComment, token);
-  //     setNewComment('');
-  //     setSnackbarMessage('Comentario agregado exitosamente');
-  //     setSnackbarOpen(true);
-  //     setShowConfirmationModal(false);
-      
-  //     // Actualizar inmediatamente los comentarios
-  //     const commentsData = await getTicketComments(ticketId, token);
-  //     setComments(commentsData);
-  //   } catch (error) {
-  //     console.error('Error adding comment:', error);
-  //     setSnackbarMessage('Error al agregar el comentario');
-  //     setSnackbarOpen(true);
-  //   }
-  // };
 
 
   const handleAddComment = async () => {
@@ -105,7 +83,7 @@ const TicketDetails = () => {
       return;
     }
     try {
-      const userInfo = getUserInfo(); // Assuming you have this function
+      const userInfo = getUserInfo(); 
       const commentResponse = await addComment(ticketId, newComment, token);
       setNewComment('');
       setSnackbarMessage('Comentario agregado exitosamente');
@@ -131,28 +109,6 @@ const TicketDetails = () => {
       setSnackbarOpen(true);
     }
   };
-
-
-  // const handleTicketAction = async (action) => {
-  //   try {
-  //     const result = await updateTicket(ticketId, { action }, token);
-  //     setTicket(result.ticket);
-  //     setSnackbarMessage(`Ticket ${action === 'start' ? 'iniciado' : action === 'resolve' ? 'resuelto' : 'cerrado'} exitosamente`);
-  //     setSnackbarOpen(true);
-      
-  //     // Actualizar inmediatamente los comentarios después de una acción
-  //     const commentsData = await getTicketComments(ticketId, token);
-  //     setComments(commentsData);
-
-  //   } catch (error) {
-  //     console.error('Error updating ticket:', error);
-  //     setSnackbarMessage(error.message || 'Error al actualizar el ticket');
-  //     setSnackbarOpen(true);
-  //   }
-  // };
-
-//revisado
-
 
 const handleTicketAction = async (action) => {
   try {

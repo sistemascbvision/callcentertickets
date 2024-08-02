@@ -181,111 +181,6 @@ function AddTicketForm({ open, handleClose }) {
     }
   };
 
-  // const handleSubmit = async () => {
-  //   try {
-  //     const token = localStorage.getItem('token');
-  //     const userInfo = getUserInfo();
-
-  //     const ticketData = {
-  //       agencyId: parseInt(selectedSucursal.id_sucursal),
-  //       clientId: ticket.client_id ? parseInt(ticket.client_id) : null,
-  //       contractId: ticket.contract_id || null,
-  //       requesterName: ticket.requester_name,
-  //       requesterContact: ticket.requester_contact,
-  //       title: ticket.title,
-  //       description: ticket.description,
-  //       status: 'open',
-  //       priority: 'high',
-  //       createdBy: parseInt(userInfo.id),
-  //       departmentId: ticket.department_id ? parseInt(ticket.department_id) : null
-
-  //     };
-
-  //     console.log('Datos del ticket a enviar:', ticketData);
-  //     const response = await addTicket(ticketData, token);
-  //     console.log('Respuesta del servidor:', response);
-  //     //el socketsaurio tara aki jeje
-  //     socket.emit('create_ticket', {
-  //       ticketId: response.id,
-  //       createdBy: userInfo.username,
-  //       title: ticket.title
-  //     });
-
-  //     setSuccess(true);
-  //     setTimeout(() => {
-  //       handleClose();
-  //       resetForm();
-  //     }, 2000);
-  //   } catch (error) {
-  //     console.error('Error al crear ticket:', error);
-  //     setError(error.message || 'Error al crear el ticket');
-  //   }
-  // };
-
- 
-//   const handleSubmit = async () => {
-//     try {
-//       const token = localStorage.getItem('token');
-//       const userInfo = getUserInfo();
-//       const ticketData = {
-//         agencyId: parseInt(selectedSucursal.id_sucursal),
-//         clientId: ticket.client_id ? parseInt(ticket.client_id) : null,
-//         contractId: ticket.contract_id || null,
-//         requesterName: ticket.requester_name,
-//         requesterContact: ticket.requester_contact,
-//         title: ticket.title,
-//         description: ticket.description,
-//         status: 'open',
-//         priority: 'high',
-//         createdBy: parseInt(userInfo.id),
-//         departmentId: ticket.department_id ? parseInt(ticket.department_id) : null
-//       };
-//       console.log('Datos del ticket a enviar:', ticketData);
-//       const response = await addTicket(ticketData, token);
-//       console.log('Respuesta del servidor:', response);
-  
-//       // if (socket && !response.id) {
-//       //   socket.emit('create_ticket', {
-//       //     ticketId: response.id,
-//       //     createdBy: userInfo.username,
-//       //     title: ticket.title,
-//       //     agencyName: selectedSucursal.nombre_sucursal
-//       //   });
-//       // }
-  
-//  // Verificar que response.id tenga un valor válido
-//  if (response.id) {
-//   console.log('ID del ticket creado:', response.id);
-//   if (socket) {
-//     console.log('Emitiendo evento create_ticket:', {
-//       ticketId: response.id,
-//       createdBy: userInfo.username,
-//       title: ticket.title,
-//       agencyName: selectedSucursal.nombre_sucursal
-//     });
-//     socket.emit('create_ticket', {
-//       ticketId: response.id,
-//       createdBy: userInfo.username,
-//       title: ticket.title,
-//       agencyName: selectedSucursal.nombre_sucursal
-//     });
-//     console.log('Evento create_ticket emitido');
-//   }
-// } else {
-//   console.error('El ID del ticket no está presente en la respuesta del servidor');
-// }
-//       setSuccess(true);
-//       setTimeout(() => {
-//         handleClose();
-//         resetForm();
-//       }, 2000);
-//     } catch (error) {
-//       console.error('Error al crear ticket:', error);
-//       setError(error.message || 'Error al crear el ticket');
-//     }
-//   };
-
-
 const handleSubmit = async () => {
   try {
     const token = localStorage.getItem('token');
@@ -303,13 +198,13 @@ const handleSubmit = async () => {
       createdBy: parseInt(userInfo.id),
       departmentId: ticket.department_id ? parseInt(ticket.department_id) : null
     };
-    console.log('Datos del ticket a enviar:', ticketData);
+    // console.log('Datos del ticket a enviar:', ticketData);
     const response = await addTicket(ticketData, token);
-    console.log('Respuesta del servidor:', response);
+    // console.log('Respuesta del servidor:', response);
 
     // Verificar que response.id tenga un valor válido
     if (response.id) {
-      console.log('ID del ticket creado:', response.id);
+      // console.log('ID del ticket creado:', response.id);
       if (socket) {
         console.log('Emitiendo evento create_ticket:', {
           ticketId: response.id,
@@ -323,10 +218,10 @@ const handleSubmit = async () => {
           title: ticket.title,
           agencyName: selectedSucursal.nombre // Asegurarse de usar el nombre correcto
         });
-        console.log('Evento create_ticket emitido');
+        // console.log('Evento create_ticket emitido');
       }
     } else {
-      console.error('El ID del ticket no está presente en la respuesta del servidor');
+      // console.error('El ID del ticket no está presente en la respuesta del servidor');
     }
 
     setSuccess(true);

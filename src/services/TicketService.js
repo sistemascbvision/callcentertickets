@@ -176,11 +176,6 @@ export const updateTicket = async (ticketId, updatedTicket, token) => {
 };
 
 
-
-
-
-
-
 export const getTicketsByClient = async (clientId, token) => {
   try {
     const response = await fetch(`${API_URL}/tickets/client/${clientId}`, {
@@ -195,6 +190,8 @@ export const getTicketsByClient = async (clientId, token) => {
     throw error;
   }
 };
+
+
 
 
 //comments

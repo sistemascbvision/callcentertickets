@@ -65,7 +65,7 @@ export const NotificationProvider = ({ children }) => {
   }, [socket]);
 
   const addNotification = (message, type) => {
-    // console.log('Adding notification:', message, type);
+    // console.log('Adding notification:', message, type); 
     setNotifications(prev => [...prev, { id: Date.now(), message, type }]);
   };
 

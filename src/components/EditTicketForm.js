@@ -22,6 +22,7 @@ function EditTicketForm({ open, handleClose, ticket }) {
   const [editedTicket, setEditedTicket] = useState({
     department_id: ticket.department_id || '',
     description: ticket.description || '',
+
   });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
