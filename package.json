@@ -57,5 +57,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.233.134:3000"  // Ajusta esto al puerto de tu backend
+  "proxy": "http://192.168.233.134:3000"
 }
